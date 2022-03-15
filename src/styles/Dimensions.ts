@@ -4,4 +4,5 @@ export default {
 	FULL_WIDTH: Dimensions.get("window").width,
 	FULL_HEIGHT: Dimensions.get("window").height,
 	PADDING: 20,
+	PADDING_SM: 10,
 };

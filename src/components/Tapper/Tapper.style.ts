@@ -3,7 +3,6 @@ import Colors from "../../styles/Colors";
 
 export default StyleSheet.create({
 	button_container: {
-		// backgroundColor: "red",
 		width: 50,
 		height: 50,
 		justifyContent: "center",

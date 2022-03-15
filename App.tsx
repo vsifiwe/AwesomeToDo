@@ -1,5 +1,5 @@
 import StackNavigator from "./src/navigations/StackNavigator";
-import { TodoProvider } from "./src/context/TodoContext";
+import TodoProvider from "./src/context/TodoContext";
 
 const DATA: any = [
 	{
@@ -48,7 +48,7 @@ const DATA: any = [
 
 export default function App() {
 	return (
-		<TodoProvider value={DATA}>
+		<TodoProvider>
 			<StackNavigator />
 		</TodoProvider>
 	);

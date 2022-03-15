@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native";
 
 export default StyleSheet.create({
 	container: {
-		flex: 1,
-		justifyContent: "space-between",
+		width: 20,
+		height: 20,
 	},
 });
