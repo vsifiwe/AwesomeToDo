@@ -1,20 +1,55 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import StackNavigator from "./src/navigations/StackNavigator";
+import { TodoProvider } from "./src/context/TodoContext";
+
+const DATA: any = [
+	{
+		id: "1",
+		color: "#eb4034",
+		name: "Hello world!",
+		tasks: [{ id: 1, name: "Manzi", status: false }],
+	},
+	{
+		id: "2",
+		color: "#34eb6b",
+		name: "Hello world!",
+		tasks: [],
+	},
+	{
+		id: "3",
+		color: "#5234eb",
+		name: "Hello world!",
+		tasks: [],
+	},
+	{
+		id: "4",
+		color: "#eb34d8",
+		name: "Hello world!",
+		tasks: [],
+	},
+	{
+		id: "5",
+		color: "#34e5eb",
+		name: "Hello world!",
+		tasks: [],
+	},
+	{
+		id: "6",
+		color: "#34e5eb",
+		name: "Hello world!",
+		tasks: [],
+	},
+	{
+		id: "7",
+		color: "#34e5eb",
+		name: "Hello world!",
+		tasks: [],
+	},
+];
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+	return (
+		<TodoProvider value={DATA}>
+			<StackNavigator />
+		</TodoProvider>
+	);
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
