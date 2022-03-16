@@ -55,7 +55,7 @@ const TodoProvider: React.FC<{ children: React.ReactNode }> = (props) => {
 
 	const saveList = (list: any) => {
 		const newTodo: any = {
-			id: Math.random(),
+			id: Math.floor(Math.random() * 10000),
 			name: list.name,
 			color: list.color,
 			tasks: [],
@@ -63,15 +63,29 @@ const TodoProvider: React.FC<{ children: React.ReactNode }> = (props) => {
 		setTodos([...todos, newTodo]);
 	};
 	const saveTodo = (parentID: string, values: any) => {
-		console.log(values);
+		const newTodo: any = {
+			id: Math.floor(Math.random() * 10000),
+			name: values.task,
+			status: false,
+		};
+		const myIndex = todos.findIndex((el) => el.id === parentID);
+		let newTodos = todos;
+		newTodos[myIndex].tasks.push(newTodo);
+		setTodos(newTodos);
 	};
-	const updateTodo = (id: number) => {
-		todos.filter((todo: any) => {
-			if (todo.id === id) {
-				todo.status = true;
-				setTodos([...todos]);
-			}
-		});
+	const updateTodo = (id: string, tasks: any) => {
+		// todos.filter((todo: any) => {
+		// 	if (todo.id === id) {
+		// 		todo.status = true;
+		// 		setTodos([...todos]);
+		// 	}
+		// });
+
+		const myIndex = todos.findIndex((el) => el.id == id);
+		let newTodos = todos[myIndex];
+		console.log(todos[myIndex]);
+		// newTodos.tasks = tasks;
+		// setTodos(newTodos);
 	};
 	return (
 		<TodoContext.Provider value={{ todos, saveTodo, updateTodo, saveList }}>

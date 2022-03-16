@@ -6,11 +6,11 @@ const ListCard = ({ item, navigate }: any) => {
 	return (
 		<Pressable onPress={navigate}>
 			<View style={[styles.container, { backgroundColor: item.color }]}>
-				<Text>{item.name}</Text>
-				<Text>1</Text>
-				<Text>Completed</Text>
-				<Text>2</Text>
-				<Text>Remaining</Text>
+				<Text style={[styles.text, styles.bold]}>{item.name}</Text>
+				<Text style={styles.text}>1</Text>
+				<Text style={[styles.text, styles.bold]}>Completed</Text>
+				<Text style={styles.text}>2</Text>
+				<Text style={[styles.text, styles.bold]}>Remaining</Text>
 			</View>
 		</Pressable>
 	);

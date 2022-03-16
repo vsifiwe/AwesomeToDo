@@ -4,14 +4,14 @@ import { Formik } from "formik";
 import styles from "./NewTaskForm.style";
 import { TodoContext } from "../../context/TodoContext";
 
-const NewTaskForm = ({ parentID }: any) => {
+const NewTaskForm = ({ parentID, submit }: any) => {
 	const { saveTodo } = useContext(TodoContext);
 
 	return (
 		<Formik
 			initialValues={{ task: "" }}
 			// onSubmit={(values) => console.log(values)}
-			onSubmit={(values) => saveTodo(parentID, values)}
+			onSubmit={(values) => submit(values)}
 		>
 			{({ handleChange, handleBlur, handleSubmit, values }) => (
 				<View style={styles.container}>
