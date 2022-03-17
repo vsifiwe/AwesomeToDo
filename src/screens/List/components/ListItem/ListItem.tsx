@@ -1,14 +1,16 @@
 import { View, Text, Pressable } from "react-native";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import styles from "./ListItem.style";
 import Checkbox from "expo-checkbox";
 import { Colors } from "../../../../styles";
+import { TodoContext } from "../../../../context/TodoContext";
 
-const ListItem = ({ item, update, handleDelete }: any) => {
+const ListItem = ({ item, handleDelete }: any) => {
 	const [isChecked, setChecked] = useState(item.status);
+	const { updateTodo } = useContext<any>(TodoContext);
 
 	const handleUpdate = (id: string) => {
-		update(id);
+		updateTodo(id);
 		setChecked(!isChecked);
 	};
 
@@ -32,7 +34,7 @@ const ListItem = ({ item, update, handleDelete }: any) => {
 							  }
 					}
 				>
-					{item.name}
+					{item.task}
 				</Text>
 			</Pressable>
 		</View>

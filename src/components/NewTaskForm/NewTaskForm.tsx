@@ -2,15 +2,11 @@ import React, { useContext } from "react";
 import { Button, TextInput, View } from "react-native";
 import { Formik } from "formik";
 import styles from "./NewTaskForm.style";
-import { TodoContext } from "../../context/TodoContext";
 
 const NewTaskForm = ({ parentID, submit }: any) => {
-	const { saveTodo } = useContext(TodoContext);
-
 	return (
 		<Formik
-			initialValues={{ task: "" }}
-			// onSubmit={(values) => console.log(values)}
+			initialValues={{ task: "", listId: parentID }}
 			onSubmit={(values) => submit(values)}
 		>
 			{({ handleChange, handleBlur, handleSubmit, values }) => (

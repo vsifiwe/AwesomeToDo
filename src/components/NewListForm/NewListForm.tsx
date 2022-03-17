@@ -6,7 +6,7 @@ import { TodoContext } from "../../context/TodoContext";
 import { ColorButton } from "./components";
 
 const NewListForm = () => {
-	const { saveList } = useContext(TodoContext);
+	const { saveList } = useContext<any>(TodoContext);
 	return (
 		<Formik
 			initialValues={{ name: "", color: "blue" }}

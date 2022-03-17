@@ -1,11 +1,12 @@
-import { SafeAreaView, Text, FlatList } from "react-native";
+import { SafeAreaView, Text, FlatList, Button } from "react-native";
 import React, { useContext } from "react";
 import { AddListButton, ListCard, Tapper } from "../../components";
 import { HomeScreenType, ListItemsType } from "../../types";
 import { TodoContext } from "../../context/TodoContext";
+// import { getLists } from "../../db/connection";
 
 const Home = ({ navigation }: any) => {
-	const { todos } = useContext(TodoContext);
+	const { lists } = useContext<any>(TodoContext);
 	const renderItem = ({ item }: any) => (
 		<ListCard
 			item={item}
@@ -17,11 +18,12 @@ const Home = ({ navigation }: any) => {
 			<Text>To do Lists</Text>
 			<Tapper onPress={() => navigation.navigate("NewList")} />
 			<FlatList
-				data={todos}
+				data={lists}
 				renderItem={renderItem}
-				// keyExtractor={(item) => item.id}
+				keyExtractor={(item) => item.id}
 				horizontal
 			/>
+			{/* <Button title="Get Lists" onPress={getLists} /> */}
 		</SafeAreaView>
 	);
 };
