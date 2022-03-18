@@ -3,7 +3,7 @@ import React, { useContext } from "react";
 import { AddListButton, ListCard, Tapper } from "../../components";
 import { HomeScreenType, ListItemsType } from "../../types";
 import { TodoContext } from "../../context/TodoContext";
-// import { getLists } from "../../db/connection";
+import { saveList } from "../../db/connection";
 
 const Home = ({ navigation }: any) => {
 	const { lists } = useContext<any>(TodoContext);
@@ -23,7 +23,7 @@ const Home = ({ navigation }: any) => {
 				keyExtractor={(item) => item.id}
 				horizontal
 			/>
-			{/* <Button title="Get Lists" onPress={getLists} /> */}
+			<Button title="Get Lists" onPress={() => saveList()} />
 		</SafeAreaView>
 	);
 };

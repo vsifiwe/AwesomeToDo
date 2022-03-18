@@ -1,17 +1,17 @@
 import { Entity, Column, OneToMany, PrimaryColumn } from "typeorm";
 import Task from "./Task";
 
-@Entity("list")
+@Entity({ name: "list" })
 export default class List {
-	@PrimaryColumn()
+	@PrimaryColumn("int")
 	id: number;
 
-	@Column()
+	@Column("text", { nullable: true })
 	name: string;
 
-	@Column()
+	@Column("text", { nullable: true })
 	color: string;
 
-	@OneToMany((type) => Task, (task) => task.listId)
-	tasks: Task[];
+	// @OneToMany((type) => Task, (task) => task.listId)
+	// tasks: Task[];
 }

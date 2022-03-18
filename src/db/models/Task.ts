@@ -1,19 +1,19 @@
 import { Entity, Column, ManyToOne, PrimaryColumn } from "typeorm";
 import List from "./List";
 
-@Entity("task")
+@Entity({ name: "task" })
 export default class Task {
-	@PrimaryColumn()
+	@PrimaryColumn("int")
 	id: number;
 
-	@Column()
+	@Column("text")
 	task: string;
 
-	@Column()
+	@Column("boolean")
 	status: boolean;
 
-	@ManyToOne((type) => List, (list) => list.tasks, {
-		cascade: ["insert"],
-	})
-	listId: List;
+	// @ManyToOne((type) => List, (list) => list.tasks, {
+	// 	cascade: ["insert"],
+	// })
+	// listId: List;
 }
